@@ -2,18 +2,24 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {PiggyVest} from "./../src/PiggyVest.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
 
-    function setUp() public {}
-
-    function run() public {
+contract DeployPiggyVest is Script {
+    function run() external {
+        
         vm.startBroadcast();
 
-        counter = new Counter();
+        
+        PiggyVest piggy = new PiggyVest(
+            1 ether, 
+            10 ether
+        );
 
+      
         vm.stopBroadcast();
+
+       
+        console.log("PiggyVest deployed at:", address(piggy));
     }
 }
