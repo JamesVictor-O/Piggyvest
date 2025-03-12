@@ -12,8 +12,6 @@ contract DeployPiggyVest is Script {
 
         
         PiggyVest piggy = new PiggyVest(
-            1 ether, 
-            10 ether
         );
 
       
